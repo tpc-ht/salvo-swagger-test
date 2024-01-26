@@ -1,7 +1,9 @@
+// use salvo::oapi::ToSchema;
 use salvo::oapi::ToSchema;
 use serde::Serialize;
 
 #[derive(Debug, Serialize, ToSchema)]
+#[salvo(schema(symbol = "ResObj"))]
 pub struct ResObj<T: ToSchema + 'static> {
     pub code: i32,
     pub data: Option<T>,

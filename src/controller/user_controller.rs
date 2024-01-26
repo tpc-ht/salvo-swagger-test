@@ -2,7 +2,6 @@ use crate::model::{
     common_model::ResObj,
     user_model::{LoginParams, LoginRes, User},
 };
-
 use crate::utils::res::{res_json_ok, Res};
 use salvo::oapi::{endpoint, extract::JsonBody};
 
@@ -14,7 +13,7 @@ use salvo::oapi::{endpoint, extract::JsonBody};
         (status_code = 200,body=ResObj<LoginRes>,description ="登录")
     ),
   )]
-pub async fn login(_login_body: JsonBody<LoginParams>) -> Res<LoginRes> {
+pub fn login(_login_body: JsonBody<LoginParams>) -> Res<LoginRes> {
     let user = User {
         name: "小明".to_string(),
     };
